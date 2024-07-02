@@ -1,10 +1,15 @@
 import React from 'react'
 import LandingPage from './vendorDashboard/pages/LandingPage'
+import {Routes,Route} from 'react-router-dom'
+
 
 const App = () => {
   return (
     <>
-      <LandingPage/>
+      <Routes>
+        <Route path='/' element={<LandingPage/>} />
+      </Routes>
+      
     </>
   )
 }
