@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Button, Input ,Checkbox} from 'antd';
+import { CgAddR } from 'react-icons/cg';
 
 const AddProduct = () => {
   return (
     <Wrapper>
             <div className='add-firm p-5'>
-                <h1 className='text-blue-600 text-3xl'>Add Product</h1>
+                <h1 className='text-blue-600 text-3xl flex items-center'>Add Product <span className='text-[17px] text-teal-500 mx-3 mt-2'><CgAddR/></span></h1>
                 <hr className='w-[35px]' />
                 <div className="form border-2 border-orange-600 rounded-2xl h-[90%] mt-4 flex justify-center items-start">
                     <form className='flex flex-col gap-3 mt-4'>
