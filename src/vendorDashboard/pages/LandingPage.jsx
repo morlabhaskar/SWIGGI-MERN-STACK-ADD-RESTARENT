@@ -39,7 +39,7 @@ const LandingPage = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <div className="layout flex">
         <SideBar showaddfirmHandler={showaddfirmHandler} showaddproductHandler={showaddproductHandler} allproductsHandler={allproductsHandler} profileHandler={profileHandler} />
         {showaddfirm && <AddFirm  />}

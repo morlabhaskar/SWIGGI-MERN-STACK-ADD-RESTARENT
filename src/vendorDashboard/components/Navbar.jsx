@@ -41,7 +41,9 @@ const Navbar = () => {
         setEmail("")
         setPassword("")
         alert("Vendor Register Successfully")
+        toggleAuth()
       }
+      
       
     } catch (error) {
       console.log(error)
@@ -49,14 +51,10 @@ const Navbar = () => {
     }
   }
 
-    //forms submit login
-    // const [email,setEmail] = useState("")
-    // const [password,setPassword] = useState("")
-
   const loginHandler = async(e)  => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:4000/vendor/login",{
+      const response = await fetch(`${API_URL}/vendor/login`,{
         method:'POST',
         headers:{
           'Content-Type' : 'application/json'
@@ -68,10 +66,12 @@ const Navbar = () => {
         console.log(data)
         alert("Login Successfully");
         localStorage.setItem('token',data.token)
+        onClose()
       }
     } catch (error) {
       console.log(error)
       alert("Login Failed")
+     
       
     }
   }
