@@ -20,6 +20,23 @@ const AddFirm = () => {
             
         }
     }
+    const handleCategory = async(e) => {
+        e.preventDefault()
+        try {
+            
+        } catch (error) {
+            
+        }
+    }
+    const handleRegion = async(e) => {
+        e.preventDefault()
+        try {
+            
+        } catch (error) {
+            
+        }
+    }
+
     return (
         <Wrapper>
             <div className='add-firm p-5'>
