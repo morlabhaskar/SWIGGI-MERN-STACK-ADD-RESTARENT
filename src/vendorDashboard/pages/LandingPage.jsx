@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Navbar from '../components/Navbar';
+// import Navbar from '../components/Navbar';
 import SideBar from '../components/SideBar';
 import AddFirm from '../components/forms/AddFirm';
 import AddProduct from '../components/forms/AddProduct';
@@ -39,7 +39,7 @@ const LandingPage = () => {
 
   return (
     <>
-      <Navbar/>
+      {/* <Navbar/> */}
       <div className="layout flex">
         <SideBar showaddfirmHandler={showaddfirmHandler} showaddproductHandler={showaddproductHandler} allproductsHandler={allproductsHandler} profileHandler={profileHandler} />
         {showaddfirm && <AddFirm  />}

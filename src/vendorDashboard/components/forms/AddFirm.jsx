@@ -24,6 +24,7 @@ const AddFirm = () => {
                 formData.append('firmName',firmName)
                 formData.append('area',area)
                 formData.append('offer',offer)
+                formData.append('image',file)
                 category.forEach((value) => {
                     formData.append('category',value)
                 })
@@ -46,8 +47,19 @@ const AddFirm = () => {
                     setOffer("")
                     setCategory([])
                     setRegion([])
-                    setFile(null)
-                    
+                    setFile("")
+                    console.log("this is firmId :",data.firmId);
+                    const mango = data.firmId;
+                    localStorage.setItem('firmId',mango)
+                }
+                else if(data.message === 'vendor can have only one firm') {
+                    alert('Firm Exist ,only 1 Firm you can Added')
+                    setFirmName("")
+                    setArea("")
+                    setOffer("")
+                    setCategory([])
+                    setRegion([])
+                    setFile("")
                 }
         } catch (error) {
             alert("Firm Add Failed")
