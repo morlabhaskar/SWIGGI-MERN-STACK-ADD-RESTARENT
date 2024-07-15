@@ -90,16 +90,14 @@ const AddProduct = () => {
                         <span>
                             <h1 className="text-fuchsia-900 py-2">Best Seller </h1>
                             <span className="flex gap-7">
-                                <span>Yes <Radio value="true" checked={bestSeller === true} onChange={handleBestSeller} /></span>
+                                <span>Yes <Radio className='radio' value="true" checked={bestSeller === true} onChange={handleBestSeller} /></span>
                                 <span>No <Radio value="false" checked={bestSeller === false} onChange={handleBestSeller} /></span>
                             </span>
                         </span>
                         <Input.TextArea placeholder='Description' className='border-black outline-none' value={description} onChange={(e)=>setDescription(e.target.value)} />
                         <Input type="file" className='border-black' onChange={handleImageUpload}  />
                         <Button htmlType='submit' className='rounded-none bg-orange-500 text-white'>Add</Button>
-                        
                     </form>
-                    
                 </div>
             </div>
         </Wrapper>
