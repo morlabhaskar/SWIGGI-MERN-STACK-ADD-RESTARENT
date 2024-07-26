@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { API_URL } from '../data/apiPath';
 
 const Profile = () => {
+  // const [vendor,setVendor] = useState("")
+  // const vendorHandler = async() => {
+  //   try {
+  //     const response = await fetch(`${API_URL}/single-vendor`)
+  //   } catch (error) {
+      
+  //   }
+  // }
   return (
-    <div>Profile</div>
+    <div>Profiled</div>
   )
 }
 

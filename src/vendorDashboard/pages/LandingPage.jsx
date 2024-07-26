@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 // import Navbar from '../components/Navbar';
 import SideBar from '../components/SideBar';
 import AddFirm from '../components/forms/AddFirm';
@@ -11,6 +11,7 @@ const LandingPage = () => {
   const [showaddproduct,setShowaddproduct] = useState(false)
   const [allproducts,setAllproducts] = useState(false)
   const [profile,setProfile] = useState(true)
+  const [showFirmTitle,SetShowFirmTitle] = useState(true)
 
   const showaddfirmHandler = () => {
     setShowaddfirm(true)
@@ -36,13 +37,25 @@ const LandingPage = () => {
     setShowaddproduct(false)
     setAllproducts(false)
   }
+  useEffect(()=>{
+    const vendorFirmName = localStorage.getItem("vendorFirmName");
+    if(vendorFirmName) {
+      SetShowFirmTitle(false)
+    }
+  },[])
 
   return (
     <>
       {/* <Navbar/> */}
       <div className="layout flex">
-        <SideBar showaddfirmHandler={showaddfirmHandler} showaddproductHandler={showaddproductHandler} allproductsHandler={allproductsHandler} profileHandler={profileHandler} />
-        {showaddfirm && <AddFirm  />}
+        <SideBar 
+            showaddfirmHandler={showaddfirmHandler} 
+            showaddproductHandler={showaddproductHandler} 
+            allproductsHandler={allproductsHandler} 
+            profileHandler={profileHandler} 
+            showFirmTitle = {showFirmTitle}
+        />
+        {showaddfirm && <AddFirm/>}
         {showaddproduct && <AddProduct/>}
         {allproducts && <AllProducts/>}
         {profile && <Profile/>}

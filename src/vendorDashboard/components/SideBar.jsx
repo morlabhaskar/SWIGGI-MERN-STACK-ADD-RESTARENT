@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import { IoPersonCircleOutline, IoPeopleOutline, IoFastFoodOutline } from "react-icons/io5";
 import { CiShoppingBasket, CiShop } from "react-icons/ci";
 
-const SideBar = ({showaddfirmHandler,showaddproductHandler,allproductsHandler,profileHandler}) => {
+const SideBar = ({showaddfirmHandler,showaddproductHandler,allproductsHandler,profileHandler,showFirmTitle}) => {
   return (
     <Wrapper>
       <div className="sidebar w-[100%] max-w-[230px] px-2 h-[710px] flex flex-col justify-between">
         <div className="add flex flex-col items-center gap-2 pt-4">
             <span onClick={profileHandler} className='profile flex items-center gap-2 w-[200px] text-xl hover:bg-slate-300 py-2 rounded-md'><IoPeopleOutline className='text-2xl' />Profile</span>
-            <span onClick={showaddfirmHandler} className='add-firm flex items-center gap-2 w-[200px] text-xl hover:bg-slate-300 py-2 rounded-md'><CiShop className='text-2xl' />Add Firm</span>
+            {showFirmTitle ? <span onClick={showaddfirmHandler} className='add-firm flex items-center gap-2 w-[200px] text-xl hover:bg-slate-300 py-2 rounded-md'><CiShop className='text-2xl' />Add Firm</span> : ""}
             <span onClick={showaddproductHandler} className='add-product flex items-center gap-2 w-[200px] text-xl hover:bg-slate-300 py-2 rounded-md'><CiShoppingBasket className='text-2xl' />Add Product</span>
             <span onClick={allproductsHandler} className='all-products flex items-center gap-2 w-[200px] text-xl hover:bg-slate-300 py-2 rounded-md'><IoFastFoodOutline className='text-2xl' />All Products</span>
         </div>

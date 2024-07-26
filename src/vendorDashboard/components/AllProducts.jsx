@@ -8,8 +8,7 @@ const AllProducts = () => {
     try {
       const response = await fetch(`${API_URL}/product/${firmId}`);
       const newProductData = await response.json()
-      setProducts(newProductData.products)
-      // console.log(products)
+      setProducts(newProductData.products);
     } catch (error) {
       console.log("failed To Fetch Products")
       alert("Failed To Fetch products")
@@ -19,15 +18,34 @@ const AllProducts = () => {
   useEffect(() => {
     productHandler()
   }, [])
+  const deleteProductById = async(productId) => {
+    try {
+      const response = await fetch(`${API_URL}/product/${productId}`,{
+        method:'DELETE'
+      });
+      if(response.ok) {
+        setProducts(products.filter(product => product._id !== productId));
+        confirm("Are You Sure want to Delete Product! ")
+        alert("Product Delete Successfully")
+      }
+
+    } catch (error) {
+      console.log(error)
+      alert("Faited to Product Delete")
+      
+    }
+
+
+  }
 
 
   return (
-    <div>
+    <div className='w-[1300px] flex justify-center items-center'>
       {products.length === 0 ? (
         <p>No Products</p>
       ) : (
-        <table className='products-table'>
-          <thead>
+        <table className='products-table w-[700px] items-center border'>
+          <thead className='bg-indigo-600 text-slate-50'>
             <tr>
               <th>Name</th>
               <th>Price</th>
@@ -44,11 +62,11 @@ const AllProducts = () => {
                     <td>{item.price}</td>
                     <td>
                       {item.image && (
-                        <img className='h-[30px]' src={`${API_URL}/uploads/${item.image}`} alt={item.productName} />
+                        <img className='h-[70px]' src={`${API_URL}/uploads/${item.image}`} alt={item.productName} />
                       )}
                     </td>
                     <td>
-                      <button>Delete</button>
+                      <button className='border px-2 py-1 rounded-lg text-red-600 ' onClick={()=>deleteProductById(item._id)}>Delete</button>
                     </td>
                   </tr>
                 </>
@@ -57,7 +75,6 @@ const AllProducts = () => {
           </tbody>
         </table>
       )}
-
     </div>
   )
 }
